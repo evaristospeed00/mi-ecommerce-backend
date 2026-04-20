@@ -10,7 +10,7 @@ RUN npm ci --legacy-peer-deps
 
 COPY . .
 
-RUN set -a && . ./.env.build && set +a && npm run build
+RUN DATABASE_URL=postgresql://localhost/dummy REDIS_URL=redis://localhost:6379 npm run build
 
 EXPOSE 9000
 
