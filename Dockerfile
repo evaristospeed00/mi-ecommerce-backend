@@ -26,7 +26,7 @@ RUN npm ci --legacy-peer-deps --omit=dev
 
 COPY . .
 
-RUN npm run build
+RUN npm run build && cp medusa-config.ts medusa-config.js
 
 EXPOSE 9000
 
