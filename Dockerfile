@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm ci --legacy-peer-deps --prefer-offline --no-audit --omit=dev
+RUN npm ci --legacy-peer-deps
 
 COPY . .
 
@@ -18,11 +18,11 @@ ENV NODE_ENV=production
 
 COPY package*.json ./
 
-RUN npm ci --legacy-peer-deps --prefer-offline --no-audit --omit=dev
+RUN npm ci --legacy-peer-deps --omit=dev
 
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/src ./src
 
-EXPOSE 3000
+EXPOSE 9000
 
 CMD ["npm", "run", "start"]
