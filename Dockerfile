@@ -22,13 +22,13 @@ ENV NODE_ENV=production
 
 COPY package*.json ./
 
-RUN npm ci --legacy-peer-deps --omit=dev
+RUN npm ci --legacy-peer-deps
 
 COPY . .
 
-RUN npm run build && cp medusa-config.ts medusa-config.js
+RUN npm run build
 
 EXPOSE 9000
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]
 
