@@ -10,7 +10,7 @@ RUN npm ci --legacy-peer-deps
 
 COPY . .
 
-RUN npm run build
+RUN set -a && . ./.env.build && set +a && npm run build
 
 EXPOSE 9000
 
