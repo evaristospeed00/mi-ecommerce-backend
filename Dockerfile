@@ -26,9 +26,9 @@ RUN npm ci --legacy-peer-deps
 
 COPY . .
 
-RUN npm run build
+RUN npm run build && cp medusa-config.ts medusa-config.js && cp medusa-config.ts medusa-config.ts
 
 EXPOSE 9000
 
-CMD ["npm", "run", "start"]
+CMD ["npx", "medusa", "start"]
 
