@@ -10,8 +10,9 @@ RUN npm ci --legacy-peer-deps
 
 COPY . .
 
-RUN npm run build && cp dist/medusa-config.js medusa-config.js || true
+RUN npm run build
 
 EXPOSE 9000
 
-CMD ["npm", "start"]
+# Cambiamos a develop porque es el único modo que lee el .ts directamente y funciona en tu PC
+CMD ["npx", "medusa", "develop"]
