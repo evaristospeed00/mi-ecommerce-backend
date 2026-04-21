@@ -1,4 +1,4 @@
-FROM node:20.20.2-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
@@ -10,9 +10,8 @@ RUN npm ci --legacy-peer-deps
 
 COPY . .
 
-RUN npm run build && cp medusa-config.ts medusa-config.js && cp medusa-config.ts medusa-config.ts
+RUN npm run build
 
 EXPOSE 9000
 
-CMD ["npx", "medusa", "start"]
-
+CMD ["npm", "start"]
