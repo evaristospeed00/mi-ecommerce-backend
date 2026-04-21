@@ -10,7 +10,7 @@ RUN npm ci --legacy-peer-deps
 
 COPY . .
 
-RUN npm run build && cp medusa-config.ts medusa-config.js && cp medusa-config.ts medusa-config.ts
+RUN DATABASE_URL=postgresql://localhost/dummy REDIS_URL=redis://localhost:6379 npm run build
 
 EXPOSE 9000
 
