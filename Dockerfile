@@ -14,5 +14,4 @@ RUN npm run build
 
 EXPOSE 9000
 
-# Cambiamos a develop porque es el único modo que lee el .ts directamente y funciona en tu PC
-CMD ["npx", "medusa", "develop"]
+CMD ["npm", "start"]
